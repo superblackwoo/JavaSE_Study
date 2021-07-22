@@ -32,13 +32,26 @@ public class StudentDemo {
 
         //private关键字的使用
         Student_Private sp = new Student_Private();
-        System.out.println("sp.name: " + sp.name);
+        System.out.println("sp.getName(): " + sp.getName());
         System.out.println("sp.age" + "报错： 'age' has private access in 'ClassTest_l1.Student_Private'");
         System.out.println("sp.getAge(): " + sp.getAge());
 
-        sp.name = "anser j";
+        //sp.name = "anser j";
+        sp.setName("anser j");
         sp.setAge(70);
-        System.out.println("sp.name: " + sp.name);
+        System.out.println("sp.getName(): " + sp.getName());
         System.out.println("sp.getAge(): " + sp.getAge());
+
+        sp.show();
+
+
+
+        //标准类测试
+        Student_Standerd sst = new Student_Standerd();
+        sst.setName("unknown");
+        sst.setAge(5);
+        Student_Standerd sst1 = new Student_Standerd("superblackwoo",23);
+        sst.show();
+        sst1.show();
     }
 }
