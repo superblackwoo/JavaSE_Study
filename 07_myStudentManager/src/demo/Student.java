@@ -1,9 +1,13 @@
 package demo;
 
 public class Student {
+    //学号
     private String sid;
+    //姓名
     private String name;
+    //年纪
     private String age;
+    //地址
     private String address;
 
     public Student() {
