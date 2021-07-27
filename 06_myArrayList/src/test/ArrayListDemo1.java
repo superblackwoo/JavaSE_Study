@@ -1,5 +1,7 @@
 package test;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ArrayListDemo1 {
     public static void main(String[] args) {
@@ -13,7 +15,7 @@ public class ArrayListDemo1 {
         myAL.add("lalala");
         System.out.println("ArrayList: " + myAL);
         //指定位置添加元素
-        myAL.add(1,"superblack");
+        myAL.add(1, "superblack");
         System.out.println("ArrayList: " + myAL);
         System.out.println("ppppppppppppppppppppppppppppppppppp");
 
@@ -26,7 +28,7 @@ public class ArrayListDemo1 {
         System.out.println("ArrayList: " + myAL);
         System.out.println("-----------------------------");
         //修改指定位置的元素,返回被修改元素
-        System.out.println(myAL.set(1,"haha"));
+        System.out.println(myAL.set(1, "haha"));
         System.out.println("ArrayList: " + myAL);
         System.out.println("-----------------------------");
         //返回指定索引位置元素
@@ -45,19 +47,43 @@ public class ArrayListDemo1 {
         AL2.add(st3);
         System.out.println(AL2);
         Student_Standerd temp = new Student_Standerd();
-        for(int i =0;i<AL2.size();i++){
+        for (int i = 0; i < AL2.size(); i++) {
             temp = AL2.get(i);
-            System.out.println("姓名：" + temp.getName() + "， 年龄：" +temp.getAge());
+            System.out.println("姓名：" + temp.getName() + "， 年龄：" + temp.getAge());
         }
+
+
+        //控制台录入学生，并遍历
+        inputStuIfo(AL2);
+        inputStuIfo(AL2);
+        inputStuIfo(AL2);
+        for (int i = 0; i < AL2.size(); i++) {
+            temp = AL2.get(i);
+            System.out.println("姓名：" + temp.getName() + "， 年龄：" + temp.getAge());
+        }
+
+        System.out.println(AL2);
     }
 
 
     //遍历集合
-    public static void bianlijihe(ArrayList<String> aa){
+    public static void bianlijihe(ArrayList<String> aa) {
         String temp = new String();
-        for(int i =0;i<aa.size();i++){
+        for (int i = 0; i < aa.size(); i++) {
             String s = aa.get(i);
             System.out.println(temp);
         }
+    }
+
+    //控制台录入学生
+    public static ArrayList<Student_Standerd> inputStuIfo(ArrayList<Student_Standerd> Stu) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入姓名：");
+        String name = sc.nextLine();
+        System.out.println("请输入年龄：");
+        int age = sc.nextInt();
+        Student_Standerd st = new Student_Standerd(name,age);
+        Stu.add(st);
+        return Stu;
     }
 }
