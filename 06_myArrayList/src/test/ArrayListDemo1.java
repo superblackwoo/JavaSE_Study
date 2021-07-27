@@ -56,7 +56,7 @@ public class ArrayListDemo1 {
     public static void bianlijihe(ArrayList<String> aa){
         String temp = new String();
         for(int i =0;i<aa.size();i++){
-            temp = aa.get(i);
+            String s = aa.get(i);
             System.out.println(temp);
         }
     }
