@@ -28,7 +28,7 @@ public class Teacher0 {
     public Teacher0() {
     }
 
-    public void teach(){
+    public void teach() {
         System.out.println("teaching......");
     }
 }

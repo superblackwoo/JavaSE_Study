@@ -28,7 +28,7 @@ public class Student0 {
         this.age = age;
     }
 
-    public void study(){
+    public void study() {
         System.out.println("Studying......");
     }
 }
