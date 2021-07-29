@@ -11,5 +11,16 @@ public class Demo {
         s0.setName("woo");
         s0.setAge(20);
         s0.study();
+
+        System.out.println("--------------");
+        Teacher t1 = new Teacher();
+        t1.setName("superblack");
+        t1.setAge(22);
+        t1.teach();
+
+        Student s1 = new Student();
+        s1.setName("woo");
+        s1.setAge(20);
+        s1.study();
     }
 }
