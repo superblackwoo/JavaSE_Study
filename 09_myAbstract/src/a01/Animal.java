@@ -16,7 +16,7 @@ public abstract class Animal {
 
 
     //抽象类可以有非抽象成员函数
-    public void show(){
+    public void show() {
         System.out.println(age);
         System.out.println(city);
     }
