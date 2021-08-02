@@ -20,5 +20,12 @@ public class JumppingDemo {
                 System.out.println("匿名内部类");
             }
         });
+
+        long start = System.currentTimeMillis();
+        for(int i =0;i<10000;i++){
+            System.out.println(i);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("共耗时"+(end - start)+"毫秒");
     }
 }
