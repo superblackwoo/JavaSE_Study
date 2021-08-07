@@ -1,3 +1,3 @@
-Good good
+Good Good
 Study
 Day Day Up
