@@ -1,9 +1,6 @@
 package Demo;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class myList {
     public static void main(String[] args) {
@@ -22,7 +19,6 @@ public class myList {
             String s = it.next();
             System.out.println(s);
         }
-
 
 
 //------------------------------------------------------------
@@ -44,7 +40,6 @@ public class myList {
         }
 
 
-
 //------------------------------------------------------------
         //List存储学生
         Student s1 = new Student("555", "a1", "4", "ad234asda");
@@ -60,7 +55,7 @@ public class myList {
 
         //Iterator遍历
         Iterator<Student> iterator = stlist.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             Student temp = iterator.next();
             System.out.println(temp.getSid() + temp.getName() + temp.getAge());
         }
@@ -73,7 +68,6 @@ public class myList {
         }
 
 
-
 //------------------------------------------------------------
         //ListIterator迭代器
         List<String> list2 = new ArrayList<String>();
@@ -82,10 +76,10 @@ public class myList {
         list2.add("Java");
 
         ListIterator<String> stringListIterator = list2.listIterator();
-        while (stringListIterator.hasNext()){
+        while (stringListIterator.hasNext()) {
             String s = stringListIterator.next();
             //if(s == "hello"){
-            if(s.equals("hello")){
+            if (s.equals("hello")) {
                 //list2.add(1,"yoxi");  //ConcurrentModificationException 并发修改异常
                 stringListIterator.add("yoxi");
             }
@@ -95,8 +89,6 @@ public class myList {
         System.out.println("-----------");
 
 
-
-
 //------------------------------------------------------------
         //第三种遍历方式：增强for（最方便的遍历方式）
         List<Student> aaa = new ArrayList<Student>();
@@ -104,9 +96,66 @@ public class myList {
         aaa.add(s2);
         aaa.add(s3);
 
-        for (Student s : aaa){
+        for (Student s : aaa) {
             System.out.println("增强for：");
             System.out.println(s.getSid() + s.getName() + s.getAge());
         }
+
+
+//------------------------------------------------------------
+        //两个子类
+        System.out.println("List 的两个子类");
+        //ArrayList
+        ArrayList<String> array = new ArrayList<String>();
+
+        array.add("hello");
+        array.add("world");
+        array.add("Java");
+
+        //三种遍历
+        for (String s : array) {
+            System.out.println(s);
+        }
+        System.out.println("-----------");
+
+        for (int i = 0; i<array.size();i++){
+            String temp = array.get(i);
+            System.out.println(temp);
+        }
+        System.out.println("-----------");
+
+        ListIterator<String> stringListIterator2 = array.listIterator();
+        while (stringListIterator2.hasNext()){
+            String temp = stringListIterator2.next();
+            System.out.println(temp);
+        }
+        System.out.println("-----------");
+
+
+        //LinkedList
+        LinkedList<String> linklist = new LinkedList<String>();
+        linklist.add("hello");
+        linklist.add("world");
+        linklist.add("Java");
+
+        //三种遍历
+        for (String s : array) {
+            System.out.println(s);
+        }
+        System.out.println("-----------");
+
+
+        for (int i = 0; i<linklist.size();i++){
+            String temp = linklist.get(i);
+            System.out.println(temp);
+        }
+        System.out.println("-----------");
+
+        ListIterator<String> stringListIterator1 = linklist.listIterator();
+        while(stringListIterator1.hasNext()){
+            String temp = stringListIterator1.next();
+            System.out.println(temp);
+        }
+        System.out.println("-----------");
     }
 }
