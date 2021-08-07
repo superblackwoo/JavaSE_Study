@@ -72,5 +72,25 @@ public class myCollection {
             String s = it1.next();
             System.out.println(s);
         }
+
+
+//------------------------------------------------------------
+// 案例：集合存储学生类，并遍历
+        Student s1 = new Student("555", "a1", "4", "ad234asda");
+        Student s2 = new Student("556", "a2", "3", "adas32da");
+        Student s3 = new Student("557", "a3", "6", "ada24sda");
+        Collection<Student> stu = new ArrayList<Student>();
+
+        stu.add(s1);
+        stu.add(s2);
+        stu.add(s3);
+
+        System.out.println(stu);
+        Iterator<Student> it11 = stu.iterator();
+        while (it11.hasNext()) {
+            Student temp = it11.next();
+            System.out.println(temp.getSid() + temp.getName() + temp.getAge());
+        }
+
     }
 }
