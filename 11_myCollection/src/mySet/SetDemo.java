@@ -4,6 +4,7 @@ import Demo.Student;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /*
  *
@@ -70,10 +71,10 @@ public class SetDemo {
         HashSet<Student_Overwreite_eq_hash> stuHashSet1 = new HashSet<Student_Overwreite_eq_hash>();
 
 
-        Student_Overwreite_eq_hash sss1 = new Student_Overwreite_eq_hash("555", "a1", "4", "ad234asda");
-        Student_Overwreite_eq_hash sss2 = new Student_Overwreite_eq_hash("556", "a2", "3", "adas32da");
-        Student_Overwreite_eq_hash sss3 = new Student_Overwreite_eq_hash("557", "a3", "6", "ada24sda");
-        Student_Overwreite_eq_hash sss4 = new Student_Overwreite_eq_hash("557", "a3", "6", "ada24sda");
+        Student_Overwreite_eq_hash sss1 = new Student_Overwreite_eq_hash("555", "a1", 4, "ad234asda");
+        Student_Overwreite_eq_hash sss2 = new Student_Overwreite_eq_hash("556", "a2", 3, "adas32da");
+        Student_Overwreite_eq_hash sss3 = new Student_Overwreite_eq_hash("557", "a3", 6, "ada24sda");
+        Student_Overwreite_eq_hash sss4 = new Student_Overwreite_eq_hash("557", "a3", 6, "ada24sda");
 
         stuHashSet1.add(sss1);
         stuHashSet1.add(sss2);
@@ -85,5 +86,29 @@ public class SetDemo {
         }
 
         System.out.println("重复的没得了");
+        System.out.println("---------------------");
+
+        //---------------------------------------------------------------------------------------------------------
+        //TreeSet
+
+        //创建集合对象
+        TreeSet<Student_Overwreite_eq_hash> ts = new TreeSet<Student_Overwreite_eq_hash>();
+        Student_Overwreite_eq_hash ssss1 = new Student_Overwreite_eq_hash("555", "a1", 4, "ad234asda");
+        Student_Overwreite_eq_hash ssss2 = new Student_Overwreite_eq_hash("556", "a2", 3, "adas32da");
+        Student_Overwreite_eq_hash ssss3 = new Student_Overwreite_eq_hash("557", "a3", 6, "ada24sda");
+        Student_Overwreite_eq_hash ssss4 = new Student_Overwreite_eq_hash("558", "a4", 7, "ada2rt4sda");
+        Student_Overwreite_eq_hash ssss5 = new Student_Overwreite_eq_hash("559", "a5", 7, "ada2rt4sda");
+
+        ts.add(ssss1);
+        ts.add(ssss2);
+        ts.add(ssss3);
+        ts.add(ssss4);
+        ts.add(ssss5);
+
+        for (Student_Overwreite_eq_hash temp:ts){
+            System.out.println(temp.getSid() + temp.getName() + temp.getAge());
+        }
+
+        //会报错，如果Student类没有实现自然排序Comparable接口
     }
 }

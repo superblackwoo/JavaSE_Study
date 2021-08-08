@@ -1,19 +1,19 @@
 package mySet;
 
-public class Student_Overwreite_eq_hash {
+public class Student_Overwreite_eq_hash implements Comparable<Student_Overwreite_eq_hash> {
     //学号
     private String sid;
     //姓名
     private String name;
     //年纪
-    private String age;
+    private int age;
     //地址
     private String address;
 
     public Student_Overwreite_eq_hash() {
     }
 
-    public Student_Overwreite_eq_hash(String sid, String name, String age, String address) {
+    public Student_Overwreite_eq_hash(String sid, String name, int age, String address) {
         this.sid = sid;
         this.name = name;
         this.age = age;
@@ -36,11 +36,11 @@ public class Student_Overwreite_eq_hash {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -59,9 +59,9 @@ public class Student_Overwreite_eq_hash {
 
         Student_Overwreite_eq_hash that = (Student_Overwreite_eq_hash) o;
 
+        if (age != that.age) return false;
         if (sid != null ? !sid.equals(that.sid) : that.sid != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (age != null ? !age.equals(that.age) : that.age != null) return false;
         return address != null ? address.equals(that.address) : that.address == null;
     }
 
@@ -69,8 +69,15 @@ public class Student_Overwreite_eq_hash {
     public int hashCode() {
         int result = sid != null ? sid.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (age != null ? age.hashCode() : 0);
+        result = 31 * result + age;
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Student_Overwreite_eq_hash o) {
+        int num = this.age - o.age ;
+        int num2 = num == 0 ? this.name.compareTo(o.name) : num;
+        return num2;
     }
 }
