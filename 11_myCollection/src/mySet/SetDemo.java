@@ -2,6 +2,7 @@ package mySet;
 
 import Demo.Student;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -105,10 +106,32 @@ public class SetDemo {
         ts.add(ssss4);
         ts.add(ssss5);
 
-        for (Student_Overwreite_eq_hash temp:ts){
+        for (Student_Overwreite_eq_hash temp : ts) {
             System.out.println(temp.getSid() + temp.getName() + temp.getAge());
         }
-
+        System.out.println("---------------------");
         //会报错，如果Student类没有实现自然排序Comparable接口
+
+
+        //---------------------------------------------------------------------------------------------------------
+        // 带参初始化TreeSet， 比较器comparetor
+        TreeSet<Student_Overwreite_eq_hash> tr11 = new TreeSet<Student_Overwreite_eq_hash>(new Comparator<Student_Overwreite_eq_hash>() {
+            @Override
+            public int compare(Student_Overwreite_eq_hash o1, Student_Overwreite_eq_hash o2) {
+                int num = o2.getAge() - o1.getAge();
+                int num1 = num == 0 ? o1.getName().compareTo(o2.getName()) : num;
+                return num1;
+            }
+        });
+
+        tr11.add(ssss1);
+        tr11.add(ssss2);
+        tr11.add(ssss3);
+        tr11.add(ssss4);
+        tr11.add(ssss5);
+
+        for (Student_Overwreite_eq_hash temp : tr11) {
+            System.out.println(temp.getSid() + temp.getName() + temp.getAge());
+        }
     }
 }
