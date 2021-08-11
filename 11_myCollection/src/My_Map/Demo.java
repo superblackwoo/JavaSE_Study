@@ -146,13 +146,37 @@ public class Demo {
             sb.append("(");
             sb.append(value);
             sb.append(")");
-//            System.out.println(key);
-//            Integer value = hm11.get(key);
-//            System.out.println("(");
-//            System.out.println(value);
-//            System.out.println(")");
         }
         System.out.println(sb);
 
+
+
+        //---------------------------------------------------------------------------------------------------------
+        //ArrarList的按排序器遍历
+
+        //创建
+        ArrayList<Student_Overwreite_eq_hash> arrayList = new ArrayList<Student_Overwreite_eq_hash>();
+        Student_Overwreite_eq_hash sss1 = new Student_Overwreite_eq_hash("555", "a1", 4, "ad234asda");
+        Student_Overwreite_eq_hash sss2 = new Student_Overwreite_eq_hash("556", "a2", 3, "adas32da");
+        Student_Overwreite_eq_hash sss3 = new Student_Overwreite_eq_hash("557", "a3", 6, "ada24sda");
+        Student_Overwreite_eq_hash sss4 = new Student_Overwreite_eq_hash("558", "a4", 7, "ada2rt4sda");
+        Student_Overwreite_eq_hash sss5 = new Student_Overwreite_eq_hash("559", "a5", 7, "ada2rt4sda");
+
+        //添加
+        arrayList.add(sss1);
+        arrayList.add(sss2);
+        arrayList.add(sss3);
+        arrayList.add(sss4);
+        arrayList.add(sss5);
+
+        Collections.sort(arrayList, new Comparator<Student_Overwreite_eq_hash>() {
+            @Override
+            public int compare(Student_Overwreite_eq_hash o1, Student_Overwreite_eq_hash o2) {
+                int num1 = o2.getAge() - o1.getAge();
+                int num2 = num1==0? o2.getName().compareTo(o1.getName()):num1;
+                return num2;
+            }
+        });
+        System.out.println(arrayList.toString());
     }
 }
