@@ -1,4 +1,4 @@
-package mySet;
+package My_Map;
 
 public class Student_Overwreite_eq_hash implements Comparable<Student_Overwreite_eq_hash> {
     //学号
