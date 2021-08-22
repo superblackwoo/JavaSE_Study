@@ -1,27 +1,30 @@
 package num2_SellTicket;
 
-public class Tickets_syn implements Runnable {
-    private int tickets = 100;
-    private Object obj = new Object();
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-    @Override
-    public void run() {
-        while (true) {
-            //模拟出票时间
-            synchronized (obj) { //一个对象对应一把锁
+public class Tickets_Lock implements Runnable{
+    private int tickets = 100;
+    private Lock lock = new ReentrantLock();
+
+    public void run(){
+        while(true){
+            try {
+                lock.lock();
                 if (tickets > 0) {
                     try {
-                        Thread.currentThread().sleep(10);
+                        Thread.currentThread().sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     System.out.println(Thread.currentThread().getName() + "正在卖出第" + tickets + "张票");
                     tickets--;
                 }
-                else{
-                    break;
-                }
             }
+            finally{
+                lock.unlock();
+            }
+
         }
     }
 }
